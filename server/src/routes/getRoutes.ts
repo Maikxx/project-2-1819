@@ -41,11 +41,9 @@ export function getRoom(weatherByCountry: WeatherByCountry[]) {
                 }
             })
 
-            const uniqueMatches = sortBy(uniqBy(matches, 'country'), 'country')
-
             response.status(200).render('pages/room', {
                 room,
-                matches: uniqueMatches,
+                matches: sortBy(uniqBy(matches, 'country'), 'country'),
             })
         } catch (error) {
             console.error(error)
