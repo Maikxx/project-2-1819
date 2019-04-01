@@ -1,36 +1,36 @@
 # Project 2 @cmda-minor-web · 2018-2019
 
-## Aanbevelingen voor een robuste, toegankelijke en snelle web toepassing
+An usefull server-side rendered application built with the data of Mirabeau for Mirabeau.
 
-Het project vindt plaats bij in ons eigen lokaal. Maandagochtend is om 9.30 uur de kickoff (bij de oprachtgever), vrijdag zijn de presentaties van de resultaten (bij de opdrachtgever). In een week bouwt iedere student een eigen prototype ter onderbouwing van aanbevelingen aan de opdrachtgevers (Valtech, Mirabeau & CMD Amsterdam). De aanbevelingen betreffen het verbeteren van toegankelijkheid en performance van de web sites / applicaties. Technieken geleerd bij [Browser Technologies](https://github.com/cmda-minor-web/browser-technologies-1819) en [Performance Matters](https://github.com/cmda-minor-web/performance-matters-1819) worden toegepast bij het bouwen van de de prototypes en et schrijven van de aanbevelingen.
+## Table of Contents
 
-## Programma
-Maandag - 9.30 - kickoff
-Woensdag - voortgangbespreking
-Vrijdag presentatie
+1. [Installation](#Installation)
+2. [Features](#Features)
+3. [Future enhancements](#Future-enhancements)
+4. [Honourable mentions](#Honourable-mentions)
+5. [License](#License)
 
-## Werkwijze en Criteria
-### Werkwijze
-Full-time week werken aan optimaliseren van toegankelijkheid en performance van een website. Vrijdag is de pitch! Student laat zien dat hij/zij de vakken [Browser Technologies](https://github.com/cmda-minor-web/browser-technologies-1819) en [Performance Matters](https://github.com/cmda-minor-web/performance-matters-1819) begrijpt en beheerst.
+## Installation
 
-Iedere dag zijn er coaches aanwezig voor coaching en feedback. We sluiten de dag af met een stand up, om de status door te spreken. Waar ben je mee bezig? Loop je ergens vast of heb je hulp nodig? Waar sta je?
+* Make sure to install [yarn](https://yarnpkg.com/en/) or [npm](https://www.npmjs.com).
+* Make sure the **port** specified in the [index.ts](server/src/index.ts) is available (defaults to 3000).
 
-### Beoordeling
-Tijdens de beoordeling krijg je feedback op het resultaat en op je functioneren. De vakdocenten kijken naar je code en beoordelen In hoeverre je in het project laten zien dat je de bijhorende vakken beheerst en goed hebt toegepast. De opdrachtgver is geïnteresseerd in hoeverre je oplossing voldoet aan de eisen die zijzelf stellen aan hun producten. Misschien laat je wel wat zien waar ze zelf nog niet aan gedacht hebben?
+* Clone the repository: `git clone git@github.com:Maikxx/project-2-1819.git`.
+* Navigate into the directory: `cd project-2-1819`.
+* Install dependencies: `yarn` or `npm install`.
+* Start the server with: `yarn start-server` or `npm run start-server`.
 
-Het project telt als AVV mee met de Meesterproef.
+The build (`yarn build`) runs the TypeScript compiler first, turning the TypeScript files into JavaScript files in the `dist` folder.
+The build process will then copy the `views` folder to the `dist` folder.
 
-### Feedback over functioneren
-Je hebt een leergierig, gedreven en zelfredzame houding nodig om de minor te kunnen halen. Welke vaardigheden heb je laten zien? Onderzoekend vermogen? Creativiteit? Conceptueel? In hoeverre komen je houding en verworven vaardigheden overeen met wat een frontender in de praktijk nodig heeft?
+## Features
 
-### Browser Technologies
-In het vak [Browser Technologies](https://github.com/cmda-minor-web/browser-technologies-1819)) heb je geleerd wat de core functionalitiet van een web toepassing is en hoe je deze functionaliteit met progressive enhancement kan opbouwen tot een robuste web teopassing. Ook heb je geleerd hoe hiermee de toegankelijkheid van een web toepassing kan worden verbeterd. 
+## Future enhancements
 
-### Performance Matters
-In het vak [Performance Matters](https://github.com/cmda-minor-web/performance-matters-1819) heb je geleerd hoe je een web toepassing (ogenschijnlijk) sneller kan maken en ook offline kan laten werken. Hiermee verbeter je de gebruikservaring van de web toepassing in alle omstandigheden.  
+## Honourable mentions
 
+* [Dennis Wegereef](https://github.com/Denniswegereef) for setting up the API on Digital Ocean.
 
-### Oplevering & criteria
-- Presentatie met je bevindingen bij de opdrachtgever. 
-- Github met je code en readme.
+## License
 
+This repository is licensed as [MIT](LICENSE) by [Maikel van Veen](https://github.com/maikxx).
