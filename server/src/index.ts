@@ -4,7 +4,7 @@ import path from 'path'
 import compression from 'compression'
 import { cache } from './services/memoryCache'
 import { decompress } from './services/decompressionService'
-import { getIndexRoute } from './routes/getRoutes'
+import { getIndexRoute, getRoom } from './routes/getRoutes'
 
 (async() => {
     const app = Express()
@@ -28,6 +28,7 @@ import { getIndexRoute } from './routes/getRoutes'
     const aWeekInSeconds = 60 * 60 * 24 * 7
 
     app.get('/', cache(aWeekInSeconds), getIndexRoute())
+    app.get('/room/:name', cache(aWeekInSeconds), getRoom())
 
     app.listen(({ port: process.env.PORT || 3000 }), () => {
         console.info(`App is now open for action on port ${process.env.PORT || 3000}.`)

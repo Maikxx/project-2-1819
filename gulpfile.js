@@ -15,8 +15,7 @@ gulp.task('minifyCss', () => {
             browsers: [
                 'last 2 versions',
                 '> 1%',
-                'maintained node versions',
-                'not dead'
+                'maintained node versions'
             ],
         }))
         .pipe(gulp.dest('./server/public/css'))

@@ -1,33 +1,3 @@
-@font-face {
-    font-family: 'Cinzel Decorative';
-    font-display: swap;
-    src: local('Cinzel Decorative Bold'), local('CinzelDecorative-Bold'),
-        url('/assets/fonts/CinzelDecorative-Bold.woff2') format('woff2'),
-        url('/assets/fonts/CinzelDecorative-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Cinzel Decorative';
-    font-display: swap;
-    src: local('Cinzel Decorative Regular'), local('CinzelDecorative-Regular'),
-        url('/assets/fonts/CinzelDecorative-Regular.woff2') format('woff2'),
-        url('/assets/fonts/CinzelDecorative-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Cinzel Decorative';
-    font-display: swap;
-    src: local('Cinzel Decorative Black'), local('CinzelDecorative-Black'),
-        url('/assets/fonts/CinzelDecorative-Black.woff2') format('woff2'),
-        url('/assets/fonts/CinzelDecorative-Black.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-}
-
 * {
     margin: 0;
     font-family: inherit;
@@ -91,8 +61,50 @@ body {
     display: flex;
     overflow-x: hidden;
     line-height: 1;
-    background-color: #2B2B2B;
-    color: #f4f4f4;
-    font-family: 'Cinzel Decorative', 'Times New Roman', Times, serif;
+    color: #2B2B2B;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 400;
+}
+
+body main {
+    padding: 1em;
+}
+
+.RoomList {
+    display: flex;
+    flex-direction: row;
+    max-width: 90%;
+    max-width: 98vw;
+    padding-bottom: .5em;
+    padding-top: .5em;
+    max-width: calc(100vw - 2em);
+    overflow-x: scroll;
+    margin-top: .5em;
+}
+
+.RoomList__item {
+    min-width: 20%;
+    border: 1px solid #2B2B2B;
+    transition: all ease .2s;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.RoomList__item:hover,
+.RoomList__item:focus {
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.75);
+}
+
+.RoomList__item-title {
+    margin-bottom: 1em;
+}
+
+.RoomList__item + .RoomList__item {
+    margin-left: 2em;
+}
+
+.RoomList__item-data + .RoomList__item-data {
+    margin-top: 1em;
 }
