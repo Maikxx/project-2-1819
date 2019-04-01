@@ -2,7 +2,6 @@ import Express from 'express'
 import Helmet from 'helmet'
 import path from 'path'
 import compression from 'compression'
-// import bodyParser from 'body-parser'
 import { cache } from './services/memoryCache'
 import { decompress } from './services/decompressionService'
 import { getIndexRoute } from './routes/getRoutes'
@@ -26,7 +25,6 @@ import { getIndexRoute } from './routes/getRoutes'
     app.set('view engine', 'ejs')
     app.set('views', path.join(__dirname, 'views'))
 
-    // const urlencodedParser = bodyParser.urlencoded({ extended: false })
     const aWeekInSeconds = 60 * 60 * 24 * 7
 
     app.get('/', cache(aWeekInSeconds), getIndexRoute())
