@@ -1,3 +1,47 @@
+@font-face {
+    font-family: 'Brando Sans Text';
+    src: url('/assets/fonts/subset-BrandoSans-Text.eot');
+    src: local('Brando Sans Text'), local('BrandoSans-Text'),
+        url('/assets/fonts/subset-BrandoSans-Text.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/subset-BrandoSans-Text.woff2') format('woff2'),
+        url('/assets/fonts/subset-BrandoSans-Text.woff') format('woff'),
+        url('/assets/fonts/subset-BrandoSans-Text.ttf') format('truetype'),
+        url('/assets/fonts/subset-BrandoSans-Text.svg#BrandoSans-Text') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brando Sans';
+    src: url('/assets/fonts/subset-BrandoSans-SemiBold.eot');
+    src: local('Brando Sans SemiBold'), local('BrandoSans-SemiBold'),
+        url('/assets/fonts/subset-BrandoSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/subset-BrandoSans-SemiBold.woff2') format('woff2'),
+        url('/assets/fonts/subset-BrandoSans-SemiBold.woff') format('woff'),
+        url('/assets/fonts/subset-BrandoSans-SemiBold.ttf') format('truetype'),
+        url('/assets/fonts/subset-BrandoSans-SemiBold.svg#BrandoSans-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Brando Sans';
+    src: url('/assets/fonts/subset-BrandoSans-Light.eot');
+    src: local('Brando Sans Light'), local('BrandoSans-Light'),
+        url('/assets/fonts/subset-BrandoSans-Light.eot?#iefix') format('embedded-opentype'),
+        url('/assets/fonts/subset-BrandoSans-Light.woff2') format('woff2'),
+        url('/assets/fonts/subset-BrandoSans-Light.woff') format('woff'),
+        url('/assets/fonts/subset-BrandoSans-Light.ttf') format('truetype'),
+        url('/assets/fonts/subset-BrandoSans-Light.svg#BrandoSans-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
 * {
     margin: 0;
     font-family: inherit;
@@ -62,7 +106,7 @@ body {
     overflow-x: hidden;
     line-height: 1;
     color: #2B2B2B;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Brando Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 400;
 }
 

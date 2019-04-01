@@ -5,8 +5,14 @@
     </head>
     <body>
         <main>
+            <h1>Mirabeau Room: <%= room.room_name %></h1>
             <section>
-                <h1>Mirabeau Room: <%= room.name %></h1>
+                <h2>Countries that match in environmental conditions</h2>
+                <ul>
+                    <% matches && matches.forEach(match => { %>
+                        <li><%= match.country %></li>
+                    <% }) %>
+                </ul>
             </section>
         </main>
     </body>

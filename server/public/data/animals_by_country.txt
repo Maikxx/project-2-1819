@@ -1,0 +1,155 @@
+Country	Animal Name	Scientific Name
+A
+Afghanistan	Snow Leopard	Panthera Uncia
+Aland Islands	Red Deer	Cervus Elaphus
+Albania	Golden Eagle	Aquila Chrysaetos
+Algeria	Fennec Fox	Vulpes Zerda
+Angola	Sable Antelope	Hippotragus Niger
+Anguilla	Zenaida Dove	Zenaida Aurita
+Antigua And Barbuda	Fallow Deer	Dama Dama
+Argentina	Rufous Hornero	Furnarius Rufus
+Armenia	Lion	Panthera Leo
+Australia	Red Kangaroo	Macropus Rufus
+Austria	Black Eagle	Ictinaetus Malaiensis
+Azerbaijan	Karabakh Horse	Equus Ferus Caballus
+B
+Bahrain	Arabian Oryx	Oryx Leucoryx
+Bangladesh	Royal Bengal Tiger	Panthera Tigris Tigris
+Belarus	European Bison	Bison Bonasus
+Belgium	Lion	Panthera Leo
+Belize	Baird's Tapir	Tapirus Bairdii
+Bhutan	Takin	Budorcas Taxicolor
+Bolivia	Llama	Lama Glama
+Botswana	Zebra	Equus Quagga
+Brazil	Jaguar	Panthera Onca
+Bulgaria	Lion	Panthera Leo
+C
+Cambodia	Kouprey	Bos Sauveli
+Canada	Beaver	Castor Canadensis
+Chile	Huemul	Hippocamelus Bisulcus
+China	Giant Panda	Ailuropoda Melanoleuca
+Colombia	Andean Condor	Vultur Gryphus
+Costa Rica	White-Tailed Deer	Odocoileus Virginianus
+Croatia	Pine Marten	Martes Martes
+Cuba	Cuban Trogon	Priotelus Temnurus
+Cyprus	Cypriot Mouflon	Ovis Orientalis
+D
+Democratic Republic Of The Congo	Okapi	Okapia Johnstoni
+Denmark	Mute Swan	Cygnus Olor
+E
+Ecuador	Andean Condor	Vultur Gryphus
+Egypt	Steppe Eagle	Aquila Nipalensis
+England	Lion	Panthera Leo
+Eritrea	Arabian Camel	Camelus Dromedarius
+Estonia	Barn Swallow	Hirundo Rustica
+Ethiopia	Lion	Panthera Leo
+F
+Finland	Brown Bear	Ursus Arctos
+France	Gallic Rooster	Gallus Gallus Domesticus
+G
+Germany	Eagle	Hieraatus Spilogaster
+Ghana	Golden Eagle	Aquila Chrysaetos
+Gibraltar	Barbary Macaque	Macaca Sylvanus
+Greece	Dolphin	Delphinus
+Greenland	Polar Bear	Ursus Maritimus
+Grenada	Grenada Dove	Leptotila Wellsi
+Guatemala	Quetzal	Pharomachrus Mocinno
+Guernsey	Guernsey Cow	Bos Taurus
+Guernsey	Donkey	Equus Asinus
+Guyana	Jaguar	Panthera Onca
+H
+Haiti	Hispaniolan Trogan	Priotelus Roseigaster
+Honduras	White-Tailed Deer	Odocoileus Virginianus
+I
+Iceland	Gyrfalcon	Falco Rusticolus
+India	Royal Bengal Tiger	Panthera Tigris Tigris
+Indonesia	Komodo Dragon	Varanus Komodoensis
+Iran	Asiatic Lion	Panthera Leo Persica
+Iraq	Chukar Partridge	Alectoris Chukar
+Iraq	Goat	Capra Aegagrus
+Ireland	Red Deer	Cervus Elaphus
+Israel	Israeli Gazelle	Gazella Gazella
+Italy	Wolf	Canis Lupus
+Ivory Coast	African Elephant	Loxodonta
+J
+Jamaica	Red-Billed Streamertail	Trochilus Polytmus
+Jordan	Arabian Oryx	Oryx Leucoryx
+K
+Kenya	Lion	Panthera Leo
+Kiribati	Magnificent Frigatebird	Fregata Magnificens
+Kuwait	Arabian Camel	Camelus Dromedarius
+L
+Laos	Indian Elephant	Elephas Maximus Indicus
+Lebanon	Striped Hyena	Hyaena Hyaena
+Lesotho	Black Rhino	Diceros Bicornis
+Liberia	Lion	Panthera Leo
+Lithuania	White Stork	Ciconia Ciconia
+Luxembourg	Lion	Panthera Leo
+M
+Macedonia	Lion	Panthera Leo
+Madagascar	Ring-Tailed Lemur	Lemur Catta
+Malawi	Thomson's Gazelle	Eudorcas Thomsonii
+Malaysia	Malayan Tiger	Panthera Tigris Jacksoni
+Maldives	Yellowfin Tuna	Thunnus Albacares
+Malta	Pharaoh Hound	Canis Lupus Familiaris
+Mauritius	Dodo	Raphus Cucullatus
+Mexico	Golden Eagle	Aquila Chrysaetos
+Moldova	Aurochs	Bos Primigenius
+Morocco	Barbary Lion	Panthera Leo Leo
+Mozambique	African Elephant	Loxodonta Africana
+Myanmar (Burma)	Tiger	Panthera Tigris
+N
+Namibia	Oryx	Oryx Leucoryx
+Nepal	Cow	Bos Taurus
+Netherlands	Lion	Panthera Leo
+New Zealand	Kiwi	Apteryx Sp.
+Nigeria	Eagle	Hieraatus Spilogaster
+North Korea	Chollima	Mythic
+Norway	Moose	Alces Alces
+O
+Oman	Arabian Oryx	Oryx Leucoryx
+P
+Pakistan	Markhor	Capra Falconeri
+Palestine	Mountain Gazelle	Gazella Gazella
+Paraguay	Pampas Fox	Lycalopex Gymnocercus
+Peru	Vicuña	Vicugna Vicugna
+Philippines	Carabao	Bubalus Bubalis
+Poland	European Bison	Bison Bonasus
+Portugal	Iberian Wolf	Canis Lupus Signatus
+Puerto Rico	Coqui	Eleutherodactylus Coqui
+Q
+Qatar	Arabian Oryx	Oryx Leucoryx
+R
+Romania	Lynx	Lynx Lynx
+Russia	Bear	Ursidae
+Rwanda	Leopard	Panthera Pardus
+S
+Saint Vincent And The Grenadines	Saint Vincent Parrot	Amazona Guildingii
+Saudi Arabia	Arabian Camel	Camelus Dromedarius
+Scotland	Unicorn	Mythic
+Serbia	Wolf	Canis Lupus Lupus
+Singapore	Lion	Panthera Leo
+Somalia	Leopard	Panthera Pardus
+South Africa	Springbok	Antidorcas Marsupialis
+South Korea	Siberian Tiger	Panthera Tigris Altaica
+South Sudan	African Fish Eagle	Haliaeetus Vocifer
+Spain	Bull	Bos Taurus
+Sri Lanka	Lion	Panthera Leo
+Swaziland	Thomson's Gazelle	Eudorcas Thomsonii
+T
+Taiwan	Formosan Black Bear	Ursus Thibetanus Formosanus
+Tanzania	Giraffe	Giraffa Camelopardalis
+Thailand	Thai Elephant	Elephas Maximus
+Timor-Leste	Crocodile	Crocodylinae
+Turkey	Gray Wolf	Canis Lupus
+U
+United Arab Emirates	Arabian Oryx	Oryx Leucoryx
+United Kingdom	Lion	Panthera Leo
+United States Of America	Bald Eagle	Haliaeetus Leucocephalus
+V
+Vietnam	Water Buffalo	Bubalus Bubalis
+W
+Wales	Welsh Dragon	Mythic
+Z
+Zambia	African Fish Eagle	Haliaeetus Vocifer
+Zimbabwe	Sable Antelope	Hippotragus Niger
