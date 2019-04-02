@@ -19,6 +19,8 @@ const readFile = util.promisify(fs.readFile)
         const nationalAnimalByCountry = JSON.parse(nationalAnimalByCountryData.toString())
 
         app.use(Helmet())
+        app.get('scripts/*.js', decompress)
+        app.get('*.css', decompress)
         app.use(Express.static(path.join(__dirname, '../public')))
         app.use(compression({
             filter: (request: Express.Request) => {
@@ -29,8 +31,6 @@ const readFile = util.promisify(fs.readFile)
                 return false
             },
         }))
-        app.get('scripts/*.js', decompress)
-        app.get('*.css', decompress)
 
         app.set('view engine', 'ejs')
         app.set('views', path.join(__dirname, 'views'))
