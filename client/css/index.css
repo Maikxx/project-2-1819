@@ -119,13 +119,25 @@ body main {
     width: 100%;
 }
 
-header {
+.PageHeader {
     width: 100%;
+    background-color: #2C73D2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    line-height: 1;
 }
 
-header > .PageTitle {
+.PageHeader > .PageTitle {
     display: inline-block;
     text-decoration: none;
+}
+
+.PageHeader > .PageSubTitle {
+    margin-left: 2em;
+    text-align: baseline;
 }
 
 .RoomList {
@@ -140,10 +152,10 @@ header > .PageTitle {
     margin-top: .5em;
 }
 
-.RoomList__item {
+.RoomListItem {
     width: 20%;
     min-width: 300px;
-    border: 1px solid #2B2B2B;
+    background-color: #B0A8B9;
     transition: all ease .2s;
     border-radius: 4px;
     text-decoration: none;
@@ -151,20 +163,24 @@ header > .PageTitle {
     overflow: hidden;
 }
 
-.RoomList__item:hover,
-.RoomList__item:focus {
+.RoomListItem--is-occupied {
+    background-color: #00C9A7;
+}
+
+.RoomListItem--is-occupied:hover,
+.RoomListItem--is-occupied:focus {
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.75);
 }
 
-.RoomList__item-title {
+.RoomListItem__title {
     margin-bottom: 1em;
 }
 
-.RoomList__item + .RoomList__item {
+.RoomListItem + .RoomListItem {
     margin-left: 2em;
 }
 
-.RoomList__item-data + .RoomList__item-data {
+.RoomListItem__data + .RoomListItem__data {
     margin-top: 1em;
 }
 

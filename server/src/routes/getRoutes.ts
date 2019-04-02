@@ -11,7 +11,7 @@ export function getIndexRoute() {
             const rooms = await data.json()
 
             response.status(200).render('pages/index', {
-                rooms: rooms && rooms.data,
+                rooms: rooms && rooms.data && sortBy(rooms.data, 'measurements.occupancy'),
             })
         } catch (error) {
             console.error(error)

@@ -6,40 +6,40 @@
     </head>
     <body>
         <main>
-            <header>
+            <header class="PageHeader">
                 <a href="/" class="PageTitle">
                     <h1>Mirabeau Rooms</h1>
                 </a>
             </header>
             <section class="RoomList">
                 <% rooms && rooms.forEach(room => { %>
-                    <a href="/room/<%= room.room_name %>" class="RoomList__item">
-                        <h2 class="RoomList__item-title"><%= room.room_name %></h2>
-                        <div class="RoomList__item-data">
+                    <a href="/room/<%= room.room_name %>" class="RoomListItem <%= room.measurements.occupancy ? 'RoomListItem--is-occupied' : '' %>">
+                        <h2 class="RoomListItem__title"><%= room.room_name %></h2>
+                        <div class="RoomListItem__data">
                             <h3>Ambient Light</h3>
                             <span><%= room.measurements.ambient_light %></span>
                         </div>
-                        <div class="RoomList__item-data">
+                        <div class="RoomListItem__data">
                             <h3>Barometric pressure</h3>
                             <span><%= room.measurements.bapLevel %></span>
                         </div>
-                        <div class="RoomList__item-data">
+                        <div class="RoomListItem__data">
                             <h3>CO2</h3>
                             <span><%= room.measurements.co2 %></span>
                         </div>
-                        <div class="RoomList__item-data">
+                        <div class="RoomListItem__data">
                             <h3>Humidity</h3>
                             <span><%= room.measurements.humidity %></span>
                         </div>
-                        <div class="RoomList__item-data">
+                        <div class="RoomListItem__data">
                             <h3>Noise levels</h3>
                             <span><%= Math.floor((room.measurements.mic_level / 100)) %> decibel</span>
                         </div>
-                        <div class="RoomList__item-data">
+                        <div class="RoomListItem__data">
                             <h3>Is occupied</h3>
                             <span><%= room.measurements.occupancy ? 'Yes' : 'No' %></span>
                         </div>
-                        <div class="RoomList__item-data">
+                        <div class="RoomListItem__data">
                             <h3>Temperature</h3>
                             <span><%= Math.floor((room.measurements.temperature / 1000)) %> degrees</span>
                         </div>
