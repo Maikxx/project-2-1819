@@ -164,7 +164,7 @@ body main {
 .RoomListItem {
     width: 20%;
     min-width: 300px;
-    background-color: #B0A8B9;
+    background-color: rgba(0, 142, 121, 0.2);
     transition: all ease .2s;
     border-radius: 4px;
     text-decoration: none;
@@ -173,7 +173,8 @@ body main {
 }
 
 .RoomListItem--is-occupied {
-    background-color: #00C9A7;
+    color: #141414;
+    background-color: #008e79;
 }
 
 .RoomListItem--is-occupied:hover,
@@ -193,7 +194,7 @@ body main {
     margin-top: 1em;
 }
 
-.MeasurementsList dt {
+.MeasurementsList__title {
     margin-top: .5em;
     font-weight: bold;
 }
@@ -202,4 +203,21 @@ body main {
 .CountriesSection {
     margin-top: 1em;
     flex: 1;
+    min-width: 300px;
+}
+
+.CountriesSectionList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1em -1em -1em;
+}
+
+.CountriesSectionListItem {
+    margin: 1em;
+    padding: 1em;
+    background-color: #845EC2;
+    background: linear-gradient(#2C73D2 0%,#845EC2 100%);
+    color: #FFFFFF;
+    border-radius: 4px;
 }

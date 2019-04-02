@@ -17,28 +17,28 @@
             <section class="MeasurementsSection">
                 <h2>Measurements</h2>
                 <dl class="MeasurementsList">
-                    <dt>Ambient Light</dt>
+                    <dt class="MeasurementsList__title">Ambient Light</dt>
                     <dd><%= room.measurements.ambient_light %></dd>
-                    <dt>Barometric pressure</dt>
+                    <dt class="MeasurementsList__title">Barometric pressure</dt>
                     <dd><%= room.measurements.bapLevel %></dd>
-                    <dt>CO2</dt>
+                    <dt class="MeasurementsList__title">CO2</dt>
                     <dd><%= room.measurements.co2 %></dd>
-                    <dt>Humidity</dt>
+                    <dt class="MeasurementsList__title">Humidity</dt>
                     <dd><%= room.measurements.humidity %></dd>
-                    <dt>Noise levels</dt>
+                    <dt class="MeasurementsList__title">Noise levels</dt>
                     <dd><%= Math.floor((room.measurements.mic_level / 100)) %> decibel</dd>
-                    <dt>Is occupied</dt>
+                    <dt class="MeasurementsList__title">Is occupied</dt>
                     <dd><%= room.measurements.occupancy ? 'Yes' : 'No' %></dd>
-                    <dt>Temperature</dt>
+                    <dt class="MeasurementsList__title">Temperature</dt>
                     <dd><%= Math.floor((room.measurements.temperature / 1000)) %> degrees</dd>
                 </dl>
             </section>
             <section class="CountriesSection">
-                <h2>Countries that match in environmental conditions</h2>
-                <ul>
+                <h2>Countries that match in environmental conditions with their national animal alongst it</h2>
+                <ul class="CountriesSectionList">
                     <% matches && matches.forEach(match => { %>
                         <% if(match.nationalAnimal) { %>
-                            <li>
+                            <li class="CountriesSectionListItem">
                                 <h3><%= match.country %></h3>
                                 <span><%= match.nationalAnimal %></span>
                             </li>
