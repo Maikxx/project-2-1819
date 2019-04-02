@@ -6,7 +6,6 @@ import { cache } from './services/memoryCache'
 import { decompress } from './services/decompressionService'
 import { getIndexRoute, getRoom } from './routes/getRoutes'
 import util from 'util'
-import path from 'path'
 import fs from 'fs'
 const readFile = util.promisify(fs.readFile)
 
