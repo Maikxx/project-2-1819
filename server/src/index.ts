@@ -15,6 +15,8 @@ const readFile = util.promisify(fs.readFile)
     try {
         const weatherByCountryData = await readFile(path.join(__dirname, '../public/data/average_weather_by_country.json'))
         const weatherByCountry = JSON.parse(weatherByCountryData.toString())
+        const nationalAnimalByCountryData = await readFile(path.join(__dirname, '../public/data/animals_by_country.json'))
+        const nationalAnimalByCountry = JSON.parse(nationalAnimalByCountryData.toString())
 
         app.use(Helmet())
         app.use(Express.static(path.join(__dirname, '../public')))
@@ -36,7 +38,7 @@ const readFile = util.promisify(fs.readFile)
         const aWeekInSeconds = 60 * 60 * 24 * 7
 
         app.get('/', cache(aWeekInSeconds), getIndexRoute())
-        app.get('/room/:name', cache(aWeekInSeconds), getRoom(weatherByCountry))
+        app.get('/room/:name', cache(aWeekInSeconds), getRoom(weatherByCountry, nationalAnimalByCountry))
 
         app.listen(({ port: process.env.PORT || 3000 }), () => {
             console.info(`App is now open for action on port ${process.env.PORT || 3000}.`)

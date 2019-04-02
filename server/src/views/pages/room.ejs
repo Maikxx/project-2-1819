@@ -30,7 +30,12 @@
                 <h2>Countries that match in environmental conditions</h2>
                 <ul>
                     <% matches && matches.forEach(match => { %>
-                        <li><%= match.country %></li>
+                        <% if(match.nationalAnimal) { %>
+                            <li>
+                                <h3><%= match.country %></h3>
+                                <span><%= match.nationalAnimal %></span>
+                            </li>
+                        <% } %>
                     <% }) %>
                 </ul>
             </section>
