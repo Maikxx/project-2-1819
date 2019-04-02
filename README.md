@@ -25,6 +25,9 @@ The build process will then copy the `views` folder to the `dist` folder.
 
 ## Features
 
+* (Pre-)Compression
+* Caching
+
 ## Future enhancements
 
 ## Honourable mentions
