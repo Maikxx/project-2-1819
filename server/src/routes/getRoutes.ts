@@ -76,8 +76,6 @@ export function getRoomRoute(countries: Countries[]) {
                     return null
                 }).filter(match => !!match))
 
-            console.log(matches)
-
             response.status(200).render('pages/room', {
                 room,
                 matches: sortBy(uniqBy(matches, 'country'), 'country'),
