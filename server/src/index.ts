@@ -14,7 +14,7 @@ const readFile = util.promisify(fs.readFile)
     const app = Express()
 
     try {
-        const countryData = await readFile(path.join(__dirname, '../public/data/country.json'))
+        const countryData = await readFile(path.join(__dirname, '../public/data/countries.json'))
         const countries = JSON.parse(countryData.toString()) as Countries[]
         const aWeekInSeconds = 60 * 60 * 24 * 7
 
