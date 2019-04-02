@@ -112,6 +112,15 @@ body {
 
 body main {
     padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+h1 {
+    width: 100%;
 }
 
 .RoomList {
@@ -127,7 +136,8 @@ body main {
 }
 
 .RoomList__item {
-    min-width: 20%;
+    width: 20%;
+    min-width: 300px;
     border: 1px solid #2B2B2B;
     transition: all ease .2s;
     border-radius: 4px;
@@ -151,4 +161,15 @@ body main {
 
 .RoomList__item-data + .RoomList__item-data {
     margin-top: 1em;
+}
+
+.MeasurementsList dt {
+    margin-top: .5em;
+    font-weight: bold;
+}
+
+.MeasurementsSection,
+.CountriesSection {
+    margin-top: 1em;
+    flex: 1;
 }

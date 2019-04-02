@@ -2,11 +2,31 @@
 <html lang="en">
     <head>
         <% include ../partials/head %>
+        <title>Mirabeau room: <%= room.room_name %></title>
     </head>
     <body>
         <main>
-            <h1>Mirabeau Room: <%= room.room_name %></h1>
-            <section>
+            <h1><%= room.room_name %></h1>
+            <section class="MeasurementsSection">
+                <h2>Measurements</h2>
+                <dl class="MeasurementsList">
+                    <dt>Ambient Light</dt>
+                    <dd><%= room.measurements.ambient_light %></dd>
+                    <dt>Barometric pressure</dt>
+                    <dd><%= room.measurements.bapLevel %></dd>
+                    <dt>CO2</dt>
+                    <dd><%= room.measurements.co2 %></dd>
+                    <dt>Humidity</dt>
+                    <dd><%= room.measurements.humidity %></dd>
+                    <dt>Noise levels</dt>
+                    <dd><%= Math.floor((room.measurements.mic_level / 100)) %> decibel</dd>
+                    <dt>Is occupied</dt>
+                    <dd><%= room.measurements.occupancy ? 'Yes' : 'No' %></dd>
+                    <dt>Temperature</dt>
+                    <dd><%= Math.floor((room.measurements.temperature / 1000)) %> degrees</dd>
+                </dl>
+            </section>
+            <section class="CountriesSection">
                 <h2>Countries that match in environmental conditions</h2>
                 <ul>
                     <% matches && matches.forEach(match => { %>
