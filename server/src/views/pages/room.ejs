@@ -37,10 +37,13 @@
                 <h2>Countries that match in environmental conditions with their national animal alongst it</h2>
                 <ul class="CountriesSectionList">
                     <% matches && matches.forEach(match => { %>
-                        <% if(match.nationalAnimal) { %>
+                        <% if (match && match.animalName) { %>
                             <li class="CountriesSectionListItem">
+                                <% if (match.imageUrl) { %>
+                                    <img src="<%= match.imageUrl %>" class="CountriesSectionListItem__image" alt="<%= match.country %>">
+                                <% } %>
                                 <h3><%= match.country %></h3>
-                                <span><%= match.nationalAnimal %></span>
+                                <span><%= match.animalName %></span>
                             </li>
                         <% } %>
                     <% }) %>

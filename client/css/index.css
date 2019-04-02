@@ -147,6 +147,7 @@ body main {
     content: '\203A';
     margin-right: .5em;
     display: inline-block;
+    vertical-align: bottom;
 }
 
 .RoomList {
@@ -220,4 +221,9 @@ body main {
     background: linear-gradient(#2C73D2 0%,#845EC2 100%);
     color: #FFFFFF;
     border-radius: 4px;
+}
+
+.CountriesSectionListItem__image {
+    margin-bottom: 1em;
+    max-width: 200px;
 }

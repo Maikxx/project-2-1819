@@ -4,22 +4,23 @@ import path from 'path'
 import compression from 'compression'
 import { cache } from './services/memoryCache'
 import { decompress } from './services/decompressionService'
-import { getIndexRoute, getRoom } from './routes/getRoutes'
+import { getIndexRoute, getRoomRoute } from './routes/getRoutes'
 import util from 'util'
 import fs from 'fs'
+import { Countries } from './types/countries'
 const readFile = util.promisify(fs.readFile)
 
 ; (async() => {
     const app = Express()
 
     try {
-        const weatherByCountryData = await readFile(path.join(__dirname, '../public/data/average_weather_by_country.json'))
-        const weatherByCountry = JSON.parse(weatherByCountryData.toString())
-        const nationalAnimalByCountryData = await readFile(path.join(__dirname, '../public/data/animals_by_country.json'))
-        const nationalAnimalByCountry = JSON.parse(nationalAnimalByCountryData.toString())
+        const countryData = await readFile(path.join(__dirname, '../public/data/country.json'))
+        const countries = JSON.parse(countryData.toString()) as Countries[]
+        const aWeekInSeconds = 60 * 60 * 24 * 7
 
         app.use(Helmet())
 
+        // This must stay before the Express.static, else it won't work
         app.get('scripts/*.js', decompress)
         app.get('*.css', decompress)
 
@@ -31,10 +32,8 @@ const readFile = util.promisify(fs.readFile)
         app.set('view engine', 'ejs')
         app.set('views', path.join(__dirname, 'views'))
 
-        const aWeekInSeconds = 60 * 60 * 24 * 7
-
         app.get('/', cache(aWeekInSeconds), getIndexRoute())
-        app.get('/room/:name', cache(aWeekInSeconds), getRoom(weatherByCountry, nationalAnimalByCountry))
+        app.get('/room/:name', cache(aWeekInSeconds), getRoomRoute(countries))
 
         app.listen(({ port: process.env.PORT || 3000 }), () => {
             console.info(`App is now open for action on port ${process.env.PORT || 3000}.`)
