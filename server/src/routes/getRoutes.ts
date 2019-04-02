@@ -3,7 +3,6 @@ import Express from 'express'
 import fetch from 'node-fetch'
 import { uniqBy, sortBy } from 'lodash'
 import { Countries } from '../types/countries'
-import { performance } from 'perf_hooks'
 
 export function getIndexRoute() {
     return async function(request: Express.Request, response: Express.Response) {
