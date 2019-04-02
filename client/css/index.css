@@ -119,8 +119,13 @@ body main {
     width: 100%;
 }
 
-h1 {
+header {
     width: 100%;
+}
+
+header > .PageTitle {
+    display: inline-block;
+    text-decoration: none;
 }
 
 .RoomList {
