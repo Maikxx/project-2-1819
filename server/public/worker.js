@@ -1,6 +1,6 @@
 const CACHE_NAME = 'project-2-core-cache'
 const CORE_ASSETS = [
-    '/scripts/index.js',
+    '/scripts/room.js',
     '/scripts/polyfill.js',
     '/css/index.css',
     '/offline',
