@@ -30,7 +30,8 @@ export async function updateStorageService() {
                     .filter(image => image.tags && image.tags.filter((tag: { title: string }) => tag.title.includes('animal')).length > 0)
 
                 if (filteredImages && filteredImages.length > 0) {
-                    const imageUrl = filteredImages[0].urls && filteredImages[0].urls.small
+                    const imageUrls = filteredImages[getImageIndexByAnimalName(animalMatch.name)].urls
+                    const imageUrl = imageUrls && imageUrls.small
 
                     if (imageUrl) {
                         const response = await fetch(imageUrl, { headers: { 'X-Ratelimit-Limit': '1000' } })
@@ -56,4 +57,12 @@ export async function updateStorageService() {
     }).filter(match => !!match))
 
     await writeFile(path.join(__dirname, '../../public/data/countries.json'), JSON.stringify(transformedCountries))
+}
+
+function getImageIndexByAnimalName(name: string) {
+    if (name === 'Water Buffalo') {
+        return 4
+    }
+
+    return 0
 }
