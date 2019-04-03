@@ -37,6 +37,9 @@ The build process will then copy the `views` folder to the `dist` folder.
 
 ## Future enhancements
 
+* Increase performance on **first view** (caused by the size of prefetched data).
+* Add progressive enhancements with JavaScript.
+
 ## Honourable mentions
 
 * [Dennis Wegereef](https://github.com/Denniswegereef) for setting up the API on Digital Ocean.
