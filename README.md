@@ -66,6 +66,7 @@ The build process will then copy the `views` folder to the `dist` folder.
 
 * Increase performance on **first view** (caused by the size of prefetched data).
 * Add progressive enhancements with JavaScript.
+* Fix images that are not actually animals (for example: Vietnam).
 
 ## Honourable mentions
 
