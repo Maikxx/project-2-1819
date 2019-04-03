@@ -4,6 +4,9 @@ const CORE_ASSETS = [
     '/scripts/polyfill.js',
     '/css/index.css',
     '/offline',
+    '/assets/fonts/subset-BrandoSans-SemiBold.woff2',
+    '/assets/fonts/subset-BrandoSans-Light.woff2',
+    '/favicon.ico'
 ]
 
 self.addEventListener('install', event => {
