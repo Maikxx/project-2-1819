@@ -65,9 +65,9 @@ The build process will then copy the `views` folder to the `dist` folder.
 
 ## Future enhancements
 
-* Increase performance on **first view** (caused by the size of prefetched data).
-* Add progressive enhancements with JavaScript.
+* Add a map of the country in question in the detail modal.
 * Fix images that are not actually animals (for example: Vietnam).
+* Increase performance on **first view** (caused by the size of prefetched data).
 * Update climate data by using a weather API.
 
 ## Honourable mentions
