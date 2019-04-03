@@ -54,9 +54,10 @@ The build process will then copy the `views` folder to the `dist` folder.
 * [Meta description](./server/src/views/partials/head.ejs#L3) tag to increase **SEO scrore**.
 * [Minify](./gulpfile.js#L11) the CSS. This reduced the **time to first byte**, as well as improving the speed at which the page is **first shown**.
 * [Robots.txt](./server/public/robots.txt) to increase **SEO scrore**.
-* Server-side rendering to increase perfomance for **first view**.
 * Make use of a **service worker** to view visited pages when **offline**.
+* Server-side rendering to increase perfomance for **first view**.
 * Use a web font (WOFF and WOFF2), with only a subset of all characters (only Latin).
+* Use aria-label to describe to people that are using screen-readers what certain links do.
 
 ## Future enhancements
 

@@ -7,13 +7,17 @@
     <body>
         <main>
             <header class="PageHeader">
-                <a href="/" class="PageTitle">
-                    <h1>Mirabeau Rooms</h1>
+                <a href="/" class="PageTitle" aria-label="Home">
+                    <h1>Mirabeau room safari</h1>
                 </a>
             </header>
             <section class="RoomList">
                 <% rooms && rooms.forEach(room => { %>
-                    <a href="/room/<%= room.room_name %>" class="RoomListItem <%= room.measurements.occupancy ? 'RoomListItem--is-occupied' : '' %>">
+                    <a
+                        href="/room/<%= room.room_name %>"
+                        class="RoomListItem <%= room.measurements.occupancy ? 'RoomListItem--is-occupied' : '' %>"
+                        aria-label="Navigate to <%= room.room_name %>"
+                    >
                         <h2 class="RoomListItem__title"><%= room.room_name %></h2>
                         <div class="RoomListItem__data">
                             <h3>Ambient Light</h3>
