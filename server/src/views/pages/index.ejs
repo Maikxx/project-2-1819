@@ -21,7 +21,7 @@
                         <h2 class="RoomListItem__title"><%= room.room_name %></h2>
                         <div class="RoomListItem__data">
                             <h3>Ambient Light</h3>
-                            <span><%= room.measurements.ambient_light %></span>
+                            <span><%= Math.floor((room.measurements.ambient_light / 100)) %> lux</span>
                         </div>
                         <div class="RoomListItem__data">
                             <h3>Barometric pressure</h3>

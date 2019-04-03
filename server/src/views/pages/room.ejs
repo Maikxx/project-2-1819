@@ -18,7 +18,7 @@
                 <h2>Measurements</h2>
                 <dl class="MeasurementsList">
                     <dt class="MeasurementsList__title">Ambient Light</dt>
-                    <dd><%= room.measurements.ambient_light %></dd>
+                    <dd><%= Math.floor((room.measurements.ambient_light / 100)) %> lux</dd>
                     <dt class="MeasurementsList__title">Barometric pressure</dt>
                     <dd><%= room.measurements.bapLevel %></dd>
                     <dt class="MeasurementsList__title">CO2</dt>
