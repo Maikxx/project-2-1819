@@ -57,6 +57,7 @@ The build process will then copy the `views` folder to the `dist` folder.
 * Has an [offline page](./server/src/views/pages/offline.ejs).
 * Make use of a **service worker** to view visited pages when **offline**.
 * Provides the core functionality fine without JavaScript.
+* PWA standalone support.
 * Server-side rendering to increase perfomance for **first view**.
 * Use a web font (WOFF and WOFF2), with only a subset of all characters (only Latin).
 * Use aria-label to describe to people that are using screen-readers what certain links do.
