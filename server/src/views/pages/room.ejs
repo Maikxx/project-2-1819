@@ -40,8 +40,8 @@
                         <% if (match.imageUrl) { %>
                             <li class="CountriesSectionListItem">
                                 <img src="<%= match.imageUrl %>" class="CountriesSectionListItem__image" alt="<%= match.country %>">
-                                <h3><%= match.country %></h3>
-                                <span><%= match.animalName %></span>
+                                <h3 class="CountriesSectionListItem__title"><%= match.country %></h3>
+                                <p class="CountriesSectionListItem__content"><%= match.animalName %></p>
                             </li>
                         <% } %>
                     <% }) %>
