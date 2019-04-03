@@ -44,23 +44,24 @@
                                     aria-label="Open modal for <%= match.country %>"
                                     class="OpenModalButton"
                                 >
-                                    <img src="<%= match.imageUrl %>" class="CountriesSectionListItem__image" alt="<%= match.country %>">
+                                    <img
+                                        src="<%= match.imageUrl %>"
+                                        class="CountriesSectionListItem__image"
+                                        alt="The national animal of <%= match.country %>, the <%= match.animalName %>"
+                                    >
                                     <h3 class="CountriesSectionListItem__title"><%= match.country %></h3>
                                     <p class="CountriesSectionListItem__content"><%= match.animalName %></p>
                                 </a>
-                                <div class="Modal" id="country-modal-<%= match.country %>">
+                                <div class="Modal CountriesSectionModal" id="country-modal-<%= match.country %>">
                                     <div class="Modal__window">
-                                        <header class="Modal__header">
-                                            <a
-                                                href="#"
-                                                aria-label="Close modal"
-                                                class="Modal__close-button"
-                                            >
-                                                Close
-                                            </a>
-                                        </header>
+                                        <% include ../partials/modalHeader %>
                                         <section class="Modal__content">
                                             <h3 class="Modal__title"><%= match.country %></h3>
+                                            <img
+                                                src="<%= match.imageUrl %>"
+                                                class="CountriesSectionModal__image"
+                                                alt="The national animal of <%= match.country %>, the <%= match.animalName %>"
+                                            >
                                             <p>The national animal of <%= match.country %> is <%= match.animalName %>.</p>
                                         </section>
                                     </div>

@@ -276,6 +276,15 @@ body main {
     margin-top: .5em;
 }
 
+.CountriesSectionModal {
+    text-align: center;
+}
+
+.CountriesSectionModal__image {
+    margin: 1em auto;
+    max-width: 100%;
+}
+
 .Modal {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
