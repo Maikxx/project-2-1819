@@ -183,11 +183,11 @@ body main {
 
 .RoomListItem:not(.RoomListItem--is-occupied):hover,
 .RoomListItem:not(.RoomListItem--is-occupied):focus {
-    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .RoomListItem:not(.RoomListItem--is-occupied):active {
-    box-shadow: 0px 5px 10px 0px rgba(0,0,0,1);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 1);
 }
 
 .RoomListItem--is-occupied {
@@ -241,11 +241,29 @@ body main {
 
 .CountriesSectionListItem {
     margin: 1em;
-    padding: 1em;
     background-color: #845EC2;
     background: linear-gradient(#2C73D2 0%,#845EC2 100%);
-    color: #FFFFFF;
     border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow ease .2s;
+}
+
+.CountriesSectionListItem:hover,
+.CountriesSectionListItem:focus-within {
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.CountriesSectionListItem:active {
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 1);
+}
+
+.OpenModalButton {
+    padding: 1em;
+    color: #FFFFFF;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
 }
 
 .CountriesSectionListItem__image {
@@ -256,4 +274,66 @@ body main {
 
 .CountriesSectionListItem__content {
     margin-top: .5em;
+}
+
+.Modal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.Modal:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.Modal__close-button {
+    color: #FFFFFF;
+    opacity: 0.5;
+    pointer-events: none;
+    text-decoration: none;
+    transition: .2s ease opacity;
+}
+
+.Modal:target .Modal__close-button {
+    pointer-events: auto;
+}
+
+.Modal:target .Modal__close-button:hover,
+.Modal:target .Modal__close-button:focus {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.Modal__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 1em 2em;
+}
+
+.Modal__window {
+    background-color: #845EC2;
+    background: linear-gradient(#2C73D2 0%,#845EC2 100%);
+    color: #FFFFFF;
+    left: 50%;
+    position: absolute;
+    border-radius: 4px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    min-width: 300px;
+}
+
+.Modal__content {
+    padding: 2em;
 }

@@ -36,12 +36,35 @@
             <section class="CountriesSection">
                 <h2 class="CountriesSection__title">Countries that match in environmental conditions with their national animal alongst it</h2>
                 <ul class="CountriesSectionList">
-                    <% matches && matches.forEach(match => { %>
+                    <% matches && matches.forEach((match, i) => { %>
                         <% if (match.imageUrl) { %>
                             <li class="CountriesSectionListItem">
-                                <img src="<%= match.imageUrl %>" class="CountriesSectionListItem__image" alt="<%= match.country %>">
-                                <h3 class="CountriesSectionListItem__title"><%= match.country %></h3>
-                                <p class="CountriesSectionListItem__content"><%= match.animalName %></p>
+                                <a
+                                    href="#country-modal-<%= match.country %>"
+                                    aria-label="Open modal for <%= match.country %>"
+                                    class="OpenModalButton"
+                                >
+                                    <img src="<%= match.imageUrl %>" class="CountriesSectionListItem__image" alt="<%= match.country %>">
+                                    <h3 class="CountriesSectionListItem__title"><%= match.country %></h3>
+                                    <p class="CountriesSectionListItem__content"><%= match.animalName %></p>
+                                </a>
+                                <div class="Modal" id="country-modal-<%= match.country %>">
+                                    <div class="Modal__window">
+                                        <header class="Modal__header">
+                                            <a
+                                                href="#"
+                                                aria-label="Close modal"
+                                                class="Modal__close-button"
+                                            >
+                                                Close
+                                            </a>
+                                        </header>
+                                        <section class="Modal__content">
+                                            <h3 class="Modal__title"><%= match.country %></h3>
+                                            <p>The national animal of <%= match.country %> is <%= match.animalName %>.</p>
+                                        </section>
+                                    </div>
+                                </div>
                             </li>
                         <% } %>
                     <% }) %>

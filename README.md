@@ -76,6 +76,7 @@ The build process will then copy the `views` folder to the `dist` folder.
 
 ## Sources
 
+* [CSS-only modal](https://codepen.io/timothylong/pen/HhAer/).
 * [Climate data](https://github.com/michaelx/climate/blob/master/climate.json). This data is unfortunately 4 years old, because I could not find newer data in this format and for calling another API I did not have time.
 * [National animals per country](http://www.geocountries.com/country/national/animals).
 * [Mirabeau](https://www.mirabeau.nl/).
