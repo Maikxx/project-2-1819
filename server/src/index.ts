@@ -4,7 +4,7 @@ import path from 'path'
 import compression from 'compression'
 import { cache } from './services/memoryCache'
 import { decompress } from './services/decompressionService'
-import { getIndexRoute, getRoomRoute } from './routes/getRoutes'
+import { getIndexRoute, getRoomRoute, getOfflineRoute } from './routes/getRoutes'
 import util from 'util'
 import fs from 'fs'
 import { Countries } from './types/countries'
@@ -22,7 +22,7 @@ const readFile = util.promisify(fs.readFile)
         app.use(Helmet())
 
         // This must stay before the Express.static, else it won't work
-        app.get('scripts/*.js', decompress)
+        app.get('*.js', decompress)
         app.get('*.css', decompress)
 
         app.use(Express.static(path.join(__dirname, '../public')))
@@ -35,6 +35,7 @@ const readFile = util.promisify(fs.readFile)
 
         app.get('/', cache(aWeekInSeconds), getIndexRoute())
         app.get('/room/:name', cache(aWeekInSeconds), getRoomRoute(countries))
+        app.get('/offline', cache(aWeekInSeconds), getOfflineRoute())
 
         app.listen(({ port: process.env.PORT || 3000 }), () => {
             console.info(`App is now open for action on port ${process.env.PORT || 3000}.`)

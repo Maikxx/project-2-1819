@@ -59,3 +59,9 @@ export function getRoomRoute(countries: Countries[]) {
         }
     }
 }
+
+export function getOfflineRoute() {
+    return function (request: Express.Request, response: Express.Response) {
+        response.status(200).render('pages/offline')
+    }
+}
