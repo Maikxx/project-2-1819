@@ -1,6 +1,6 @@
 require('dotenv').config()
 import Express from 'express'
-import fetch from 'node-fetch'
+import fetch, { Response } from 'node-fetch'
 import { uniqBy, sortBy } from 'lodash'
 import { Countries } from '../types/countries'
 
@@ -21,18 +21,18 @@ export function getIndexRoute() {
 }
 
 export function getRoomRoute(countries: Countries[]) {
-    const currentMonthNumber = new Date().getMonth()
+    const currentMonthNumber: number = new Date().getMonth()
 
     return async function(request: Express.Request, response: Express.Response) {
         const { name } = request.params as { name?: string }
-        const fetchableName = name && name.toLowerCase().replace(' ', '_')
+        const fetchableName: string | undefined = name && name.toLowerCase().replace(' ', '_')
 
         try {
-            const data = await fetch(`http://mirabeau.denniswegereef.nl/api/v1/room/${fetchableName}`)
+            const data: Response = await fetch(`http://mirabeau.denniswegereef.nl/api/v1/room/${fetchableName}`)
             const { data: room } = await data.json()
 
             if (room) {
-                const roomTemperature = Math.floor(room.measurements.temperature / 1000)
+                const roomTemperature: number = Math.floor(room.measurements.temperature / 1000)
 
                 const matches = countries.filter(country => {
                     if (country) {

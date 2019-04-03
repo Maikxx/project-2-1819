@@ -8,15 +8,16 @@ import { getIndexRoute, getRoomRoute } from './routes/getRoutes'
 import util from 'util'
 import fs from 'fs'
 import { Countries } from './types/countries'
+
 const readFile = util.promisify(fs.readFile)
 
 ; (async() => {
     const app = Express()
 
     try {
-        const countryData = await readFile(path.join(__dirname, '../public/data/countries.json'))
-        const countries = JSON.parse(countryData.toString()) as Countries[]
-        const aWeekInSeconds = 60 * 60 * 24 * 7
+        const countryData: Buffer = await readFile(path.join(__dirname, '../public/data/countries.json'))
+        const countries: Countries[] = JSON.parse(countryData.toString())
+        const aWeekInSeconds: number = 60 * 60 * 24 * 7
 
         app.use(Helmet())
 

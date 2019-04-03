@@ -1,9 +1,9 @@
 import Express from 'express'
 
 export function decompress(request: Express.Request, response: Express.Response, next: Express.NextFunction) {
-    const encoding = request.headers['accept-encoding']
-    const extensionIndex = request.originalUrl.lastIndexOf('.')
-    const extension = request.originalUrl.slice(extensionIndex)
+    const encoding: string | string[] | undefined = request.headers['accept-encoding']
+    const extensionIndex: number = request.originalUrl.lastIndexOf('.')
+    const extension: string | undefined = request.originalUrl.slice(extensionIndex)
 
     if (encoding) {
         if (encoding.includes('br')) {
@@ -15,6 +15,6 @@ export function decompress(request: Express.Request, response: Express.Response,
         }
     }
 
-    response.set('Content-Type', extension === '.js' ? 'text/javascript' : 'text/css')
+    response.setHeader('Content-Type', extension === '.js' ? 'text/javascript' : 'text/css')
     next()
 }

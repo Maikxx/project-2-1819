@@ -4,26 +4,26 @@ import util from 'util'
 import fs from 'fs'
 import { WeatherByCountry } from '../types/weatherByCountry'
 import { NationalAnimalByCountry } from '../types/animalByCountry'
-import fetch from 'node-fetch'
+import fetch, { Response } from 'node-fetch'
 
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
 
 export async function updateStorageService() {
-    const weatherByCountryData = await readFile(path.join(__dirname, '../../public/data/average_weather_by_country.json'))
-    const weatherByCountry = JSON.parse(weatherByCountryData.toString()) as WeatherByCountry[]
-    const nationalAnimalByCountryData = await readFile(path.join(__dirname, '../../public/data/animals_by_country.json'))
-    const nationalAnimalByCountry = JSON.parse(nationalAnimalByCountryData.toString()) as NationalAnimalByCountry[]
+    const weatherByCountryData: Buffer = await readFile(path.join(__dirname, '../../public/data/average_weather_by_country.json'))
+    const weatherByCountry: WeatherByCountry[] = JSON.parse(weatherByCountryData.toString())
+    const nationalAnimalByCountryData: Buffer = await readFile(path.join(__dirname, '../../public/data/animals_by_country.json'))
+    const nationalAnimalByCountry: NationalAnimalByCountry[] = JSON.parse(nationalAnimalByCountryData.toString())
     const transformedCountries = await Promise.all(weatherByCountry.map(async country => {
         const animalMatch = nationalAnimalByCountry.find(({ country: nac }) => nac === country.country)
 
         if (animalMatch) {
             // tslint:disable-next-line:ter-max-len
-            const unsplashUrl = `https://api.unsplash.com/search/photos?client_id=${process.env.UNSPLASH_KEY}&query=${animalMatch.name}&collections=animals`
-            const data = await fetch(unsplashUrl, { headers: { 'X-Ratelimit-Limit': '1000' } })
+            const unsplashUrl: string = `https://api.unsplash.com/search/photos?client_id=${process.env.UNSPLASH_KEY}&query=${animalMatch.name}&collections=animals`
+            const data: Response = await fetch(unsplashUrl, { headers: { 'X-Ratelimit-Limit': '1000' } })
             const results = data && await data.json()
             const images = results && results.results as any[]
-            let b64
+            let b64: string | undefined
 
             if (images && images.length > 0) {
                 const filteredImages = images
