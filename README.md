@@ -31,7 +31,8 @@ Provide the user with additional useful features, mainly with JavaScript.
 2. [Features](#Features)
 3. [Future enhancements](#Future-enhancements)
 4. [Honourable mentions](#Honourable-mentions)
-5. [License](#License)
+5. [Sources](#Sources)
+6. [License](#License)
 
 ## Installation
 
@@ -67,10 +68,18 @@ The build process will then copy the `views` folder to the `dist` folder.
 * Increase performance on **first view** (caused by the size of prefetched data).
 * Add progressive enhancements with JavaScript.
 * Fix images that are not actually animals (for example: Vietnam).
+* Update climate data by using a weather API.
 
 ## Honourable mentions
 
 * [Dennis Wegereef](https://github.com/Denniswegereef) for setting up the API on Digital Ocean.
+
+## Sources
+
+* [Climate data](https://github.com/michaelx/climate/blob/master/climate.json). This data is unfortunately 4 years old, because I could not find newer data in this format and for calling another API I did not have time.
+* [National animals per country](http://www.geocountries.com/country/national/animals).
+* [Mirabeau](https://www.mirabeau.nl/).
+* [Unsplash API](https://unsplash.com/).
 
 ## License
 
