@@ -177,9 +177,12 @@ body main {
 }
 
 .RoomListItem--is-occupied:hover,
-.RoomListItem--is-occupied:focus,
-.RoomListItem--is-occupied:active {
+.RoomListItem--is-occupied:focus {
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.75);
+}
+
+.RoomListItem--is-occupied:active {
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,1);
 }
 
 .RoomListItem__title {
