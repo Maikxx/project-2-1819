@@ -172,7 +172,8 @@ body main {
 .RoomListItem {
     width: 20%;
     min-width: 300px;
-    background-color: rgba(0, 142, 121, 0.2);
+    background-color: #008e79;
+    color: #141414;
     transition: all ease .2s;
     border-radius: 4px;
     text-decoration: none;
@@ -180,18 +181,17 @@ body main {
     overflow: hidden;
 }
 
-.RoomListItem--is-occupied {
-    color: #141414;
-    background-color: #008e79;
-}
-
-.RoomListItem--is-occupied:hover,
-.RoomListItem--is-occupied:focus {
+.RoomListItem:not(.RoomListItem--is-occupied):hover,
+.RoomListItem:not(.RoomListItem--is-occupied):focus {
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.75);
 }
 
-.RoomListItem--is-occupied:active {
+.RoomListItem:not(.RoomListItem--is-occupied):active {
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,1);
+}
+
+.RoomListItem--is-occupied {
+    background-color: rgba(0, 142, 121, 0.2);
 }
 
 .RoomListItem__title {
@@ -211,10 +211,23 @@ body main {
     font-weight: bold;
 }
 
+.MeasurementsSection {
+    flex: 1;
+}
+
+.CountriesSection__title {
+    max-width: 20em;
+    max-width: 45ch;
+    margin: 0 auto;
+}
+
+.CountriesSection {
+    flex: 4;
+}
+
 .MeasurementsSection,
 .CountriesSection {
     margin-top: 1em;
-    flex: 1;
     min-width: 300px;
 }
 
@@ -222,7 +235,8 @@ body main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 1em -1em -1em;
+    justify-content: center;
+    margin-top: 1em;
 }
 
 .CountriesSectionListItem {

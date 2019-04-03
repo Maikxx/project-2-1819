@@ -15,7 +15,7 @@
                 </h2>
             </header>
             <section class="MeasurementsSection">
-                <h2>Measurements</h2>
+                <h2 class="MeasurementsSection__title">Measurements</h2>
                 <dl class="MeasurementsList">
                     <dt class="MeasurementsList__title">Ambient Light</dt>
                     <dd><%= Math.floor((room.measurements.ambient_light / 100)) %> lux</dd>
@@ -34,7 +34,7 @@
                 </dl>
             </section>
             <section class="CountriesSection">
-                <h2>Countries that match in environmental conditions with their national animal alongst it</h2>
+                <h2 class="CountriesSection__title">Countries that match in environmental conditions with their national animal alongst it</h2>
                 <ul class="CountriesSectionList">
                     <% matches && matches.forEach(match => { %>
                         <% if (match.imageUrl) { %>
