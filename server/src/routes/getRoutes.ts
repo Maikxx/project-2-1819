@@ -30,24 +30,29 @@ export function getRoomRoute(countries: Countries[]) {
         try {
             const data = await fetch(`http://mirabeau.denniswegereef.nl/api/v1/room/${fetchableName}`)
             const { data: room } = await data.json()
-            const roomTemperature = Math.floor(room.measurements.temperature / 1000)
 
-            const matches = countries.filter(country => {
-                if (country) {
-                    const monthlyAvg = country.monthlyAvg[currentMonthNumber]
+            if (room) {
+                const roomTemperature = Math.floor(room.measurements.temperature / 1000)
 
-                    return monthlyAvg
-                        ? monthlyAvg.low <= roomTemperature && monthlyAvg.high >= roomTemperature
-                        : false
-                } else {
-                    return false
-                }
-            })
+                const matches = countries.filter(country => {
+                    if (country) {
+                        const monthlyAvg = country.monthlyAvg[currentMonthNumber]
 
-            response.status(200).render('pages/room', {
-                room,
-                matches: sortBy(uniqBy(matches, 'country'), 'country'),
-            })
+                        return monthlyAvg
+                            ? monthlyAvg.low <= roomTemperature && monthlyAvg.high >= roomTemperature
+                            : false
+                    } else {
+                        return false
+                    }
+                })
+
+                response.status(200).render('pages/room', {
+                    room,
+                    matches: sortBy(uniqBy(matches, 'country'), 'country'),
+                })
+            } else {
+                response.status(500).redirect('/')
+            }
         } catch (error) {
             console.error(error.message)
             response.status(500).redirect('/')
