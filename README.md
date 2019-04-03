@@ -1,6 +1,29 @@
 # Project 2 @cmda-minor-web · 2018-2019
 
-An usefull server-side rendered application built with the data of Mirabeau for Mirabeau.
+[🚀 Live demo 🚀](https://cmda-minor-project-2.herokuapp.com/)
+
+An useful server-side rendered application built with the data of Mirabeau for Mirabeau employees to make more of their day.
+
+## Concept
+
+Mirabeau employees will want to see a list of all rooms that exist, and with it their statistics (like temperature) in real-time. There will be a subtle difference between rooms that are available and those that are not in the design.
+Employees can navigate to a detail page of a room, where they get to see more detailed information about the room, as well as a comparison of the environmental conditions in this room that are comparable to a list of countries at this month of the year. With each country there is an image shown of an animal (or similar) that is the national animal of that country, so the employees learn something on a day to day basis about the world, instead of just about code and business. 🐈 🦁
+
+## Core functionality
+
+The core functionality of this application is to provide Mirabeau employees with useful information about their meeting rooms.
+
+## Reliable
+
+The employee must be able to trust the data that is presented to them.
+
+## Usable
+
+It must be accessible for pretty much everyone, disregarding disability, browser or internet speed.
+
+## Pleasurable
+
+Provide the user with additional useful features, mainly with JavaScript.
 
 ## Table of Contents
 
