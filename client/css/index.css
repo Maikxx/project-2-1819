@@ -353,13 +353,20 @@ body main {
     overflow-y: scroll;
 }
 
-.CountriesSectionModal svg {
+.CountriesSectionModal svg:first-child {
+    width: 3em;
+    position: absolute;
+    bottom: 1.5em;
+    left: 0;
+}
+
+.CountriesSectionModal svg:nth-child(2) {
     max-width: 45%!important;
     height: auto!important;
     margin: 1em auto;
 }
 
-.CountriesSectionModal svg path {
+.CountriesSectionModal svg:nth-child(2) path {
     fill: #FFFFFF;
 }
 
@@ -368,4 +375,8 @@ body main {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.Row--relative {
+    position: relative;
 }

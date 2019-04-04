@@ -37,7 +37,7 @@
                 <h2 class="CountriesSection__title">Countries that match in environmental conditions with their national animal alongst it</h2>
                 <ul class="CountriesSectionList">
                     <% matches && matches.forEach((match, i) => { %>
-                        <% if (match.imageUrl && match.shape) { %>
+                        <% if (match.imageUrl && match.shape && match.countryFlag) { %>
                             <li class="CountriesSectionListItem">
                                 <a
                                     href="#country-modal-<%= match.country %>"
@@ -57,7 +57,8 @@
                                         <% include ../partials/modalHeader %>
                                         <section class="Modal__content">
                                             <h3 class="Modal__title"><%= match.country %></h3>
-                                            <div class="Row">
+                                            <div class="Row Row--relative">
+                                                <%- match.countryFlag %>
                                                 <%- match.shape %>
                                                 <img
                                                     src="<%= match.imageUrl %>"

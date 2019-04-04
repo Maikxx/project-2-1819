@@ -46,15 +46,19 @@ export function getRoomRoute(countries: Country[]) {
                     if (country.countryCode && country.countryCode.length > 0) {
                         // tslint:disable-next-line:ter-max-len
                         const svg = await readFile(path.join(__dirname, `../../public/assets/images/country_vectors/${country.countryCode.toLowerCase()}/vector.svg`))
+                        // tslint:disable-next-line:ter-max-len
+                        const countryFlagSvg = await readFile(path.join(__dirname, `../../public/assets/images/country_flags/${country.countryCode.toLowerCase()}.svg`))
 
                         return {
                             ...country,
                             shape: svg.toString(),
+                            countryFlag: countryFlagSvg.toString(),
                         }
                     } else {
                         return {
                             ...country,
                             shape: null,
+                            countryFlag: null,
                         }
                     }
                 }))
