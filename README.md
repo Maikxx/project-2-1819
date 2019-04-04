@@ -1,4 +1,4 @@
-# Project 2 @cmda-minor-web · 2018-2019
+# Mirabeau Room Safari
 
 [🚀 Live demo 🚀](https://cmda-minor-project-2.herokuapp.com/)
 
