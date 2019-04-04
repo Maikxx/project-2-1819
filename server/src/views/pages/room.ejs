@@ -57,12 +57,14 @@
                                         <% include ../partials/modalHeader %>
                                         <section class="Modal__content">
                                             <h3 class="Modal__title"><%= match.country %></h3>
-                                            <img
-                                                src="<%= match.imageUrl %>"
-                                                class="CountriesSectionModal__image"
-                                                alt="The national animal of <%= match.country %>, the <%= match.animalName %>"
-                                            >
-                                            <%- match.shape %>
+                                            <div class="Row">
+                                                <%- match.shape %>
+                                                <img
+                                                    src="<%= match.imageUrl %>"
+                                                    class="CountriesSectionModal__image"
+                                                    alt="The national animal of <%= match.country %>, the <%= match.animalName %>"
+                                                >
+                                            </div>
                                             <p>The national animal of <%= match.country %> is the <%= match.animalName.toLowerCase() %>.</p>
                                         </section>
                                     </div>

@@ -281,8 +281,8 @@ body main {
 }
 
 .CountriesSectionModal__image {
+    max-width: 45%;
     margin: 1em auto;
-    max-width: 100%;
 }
 
 .Modal {
@@ -352,11 +352,17 @@ body main {
 }
 
 .CountriesSectionModal svg {
-    width: 100px!important;
-    height: 100px!important;
-    margin: 0 auto 1em;
+    max-width: 45%!important;
+    height: auto!important;
 }
 
 .CountriesSectionModal svg path {
     fill: #FFFFFF;
+}
+
+.Row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
