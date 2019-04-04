@@ -4,6 +4,9 @@
 
 An useful server-side rendered application built with the data of Mirabeau for Mirabeau employees to make more of their day.
 
+![Master page](./docs/master-page.png)
+![Detail page](./docs/detail-page.png)
+
 ## Scores
 
 ![Master page audit score](./docs/master-score.png)
