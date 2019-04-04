@@ -48,11 +48,10 @@
                                         src="<%= match.imageUrl %>"
                                         class="CountriesSectionListItem__image"
                                         alt="The national animal of <%= match.country %>, the <%= match.animalName %>"
-                                        style="clip-path: url(#<%= match.shapeUrl %>);"
+                                        style="clip-path: url('#<%= match.shapeUrl %>');"
                                     >
                                     <h3 class="CountriesSectionListItem__title"><%= match.country %></h3>
                                     <p class="CountriesSectionListItem__content"><%= match.animalName %></p>
-                                    <%- match.shape %>
                                 </a>
                                 <div class="Modal CountriesSectionModal" id="country-modal-<%= match.country %>">
                                     <div class="Modal__window">
@@ -74,6 +73,9 @@
                 </ul>
             </section>
         </main>
+        <% matches && matches.forEach((match, i) => { %>
+            <%- match.shape %>
+        <% }) %>
         <% include ../partials/serviceWorkerScript %>
         <script src="../../../scripts/room.js"></script>
     </body>
