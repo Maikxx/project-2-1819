@@ -6,6 +6,7 @@ An useful server-side rendered application built with the data of Mirabeau for M
 
 ![Master page](./docs/master-page.png)
 ![Detail page](./docs/detail-page.png)
+![Detail page modal](./docs/detail-page-modal.png)
 
 ## Scores
 
