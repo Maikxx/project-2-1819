@@ -5,7 +5,13 @@
 An useful server-side rendered application built with the data of Mirabeau for Mirabeau employees to make more of their day. Read more about it [here](#Concept).
 
 ![Master page](./docs/master-page.png)
+
+I originally had flags on the main page as well, as can be seen below, but it hurt the performance of the web page so much I had to leave them out and now placed them in the detail view.
+
+![Master page performance kill](./docs/killing-performance.png)
+
 ![Detail page](./docs/detail-page.png)
+
 ![Detail page modal](./docs/detail-page-modal.png)
 
 ## Table of Contents
@@ -109,6 +115,7 @@ Provide the user with additional useful features, mainly with JavaScript.
 
 * [CSS-only modal](https://codepen.io/timothylong/pen/HhAer/).
 * [Climate data per country](https://github.com/michaelx/climate/blob/master/climate.json). This data is unfortunately 4 years old, because I could not find newer data in this format and for calling another API I did not have time.
+* [Country flags in SVG](https://github.com/hjnilsson/country-flags).
 * [National animals per country](http://www.geocountries.com/country/national/animals).
 * [Mirabeau room data](https://www.mirabeau.nl/).
 * [SVG Maps](https://github.com/djaiss/mapsicon).
