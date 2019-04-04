@@ -55,6 +55,12 @@ function activateTabIndexOnHashChange(modals: NodeListOf<Element>) {
                     }
                 }
             })
+
+            window.addEventListener('keydown', event => {
+                if (event.key === 'Esc' || event.key === 'Escape') {
+                    window.location.hash = '#'
+                }
+            })
         }
     })
 }
