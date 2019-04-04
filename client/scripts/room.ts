@@ -60,7 +60,6 @@
                                 window.location.hash = '#'
 
                                 if (typeof pageOffset === 'number') {
-                                    console.log('test')
                                     window.scrollTo(0, pageOffset)
                                 }
 
