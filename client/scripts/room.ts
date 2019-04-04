@@ -9,6 +9,10 @@ if (
     featureExists('querySelectorAll', document.body, 'function')
     && featureExists('forEach', Array.prototype, 'function')
     && featureExists('addEventListener', document.body, 'function')
+    && featureExists('setAttribute', document.body, 'function')
+    && featureExists('hash', window.location, 'string')
+    && featureExists('replace', String.prototype, 'function')
+    && featureExists('removeAttribute', document.body, 'function')
 ) {
     const modals: NodeListOf<Element> = document.querySelectorAll('.Modal')
 
