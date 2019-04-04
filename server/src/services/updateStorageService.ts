@@ -2,10 +2,8 @@ require('dotenv').config()
 import path from 'path'
 import util from 'util'
 import fs from 'fs'
-import { WeatherByCountry } from '../types/weatherByCountry'
-import { NationalAnimalByCountry } from '../types/animalByCountry'
 import fetch, { Response } from 'node-fetch'
-import { CountryCodeToCountryName } from '../types/countries'
+import { CountryCodeToCountryName, NationalAnimalByCountry, WeatherByCountry } from '../types/Country'
 
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)

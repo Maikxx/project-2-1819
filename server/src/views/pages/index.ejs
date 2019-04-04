@@ -47,6 +47,14 @@
                             <h3>Temperature</h3>
                             <span><%= Math.floor((room.measurements.temperature / 1000)) %> degrees</span>
                         </div>
+                        <div class="RoomListItem__data">
+                            <h3>Comparable countries</h3>
+                            <div class="CountryList">
+                                <% room.countryFlags.forEach(countryFlag => { %>
+                                    <%- countryFlag %>
+                                <% }) %>
+                            </div>
+                        </div>
                     </a>
                 <% }) %>
             </section>

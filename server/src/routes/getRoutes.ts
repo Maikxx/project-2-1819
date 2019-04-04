@@ -2,31 +2,54 @@ require('dotenv').config()
 import Express from 'express'
 import fetch, { Response } from 'node-fetch'
 import { uniqBy, sortBy } from 'lodash'
-import { Countries } from '../types/countries'
+import { Country } from '../types/Country'
 import util from 'util'
 import fs from 'fs'
 import path from 'path'
+import { Room } from '../types/Room'
 const readFile = util.promisify(fs.readFile)
 
-export function getIndexRoute() {
+export function getIndexRoute(countries: Country[]) {
     return async function(request: Express.Request, response: Express.Response) {
         try {
-            const data = await fetch('http://mirabeau.denniswegereef.nl/api/v1/rooms')
-            const rooms = await data.json()
+            const fetchResponse = await fetch('http://mirabeau.denniswegereef.nl/api/v1/rooms')
+            const data = await fetchResponse.json()
+            const rooms: Room[] = data && data.data
 
-            response.status(200).render('pages/index', {
-                rooms: rooms && rooms.data && sortBy(rooms.data, 'measurements.occupancy'),
-            })
+            if (rooms && rooms.length > 0) {
+                const roomsWithCountryFlags = await Promise.all(rooms.map(async room => {
+                    const matchingCountries = filterCountriesByRoomTemperature(countries, room)
+
+                    const countryFlags = await Promise.all(matchingCountries.map(async country => {
+                        if (country.countryCode && country.countryCode.length > 0) {
+                            const url = `../../public/assets/images/country_flags/${country.countryCode.toLowerCase()}.svg`
+                            const svg = await readFile(path.join(__dirname, url))
+                            return svg.toString()
+                        }
+
+                        return null
+                    }).filter(countryFlag => countryFlag !== null))
+
+                    return {
+                        ...room,
+                        countryFlags,
+                    }
+                }))
+
+                response.status(200).render('pages/index', {
+                    rooms: sortBy(roomsWithCountryFlags, 'measurements.occupancy'),
+                })
+            } else {
+                throw new Error('No rooms could be found!')
+            }
         } catch (error) {
             console.error(error)
-            response.status(500).redirect('/')
+            response.status(500).redirect('/offline')
         }
     }
 }
 
-export function getRoomRoute(countries: Countries[]) {
-    const currentMonthNumber: number = new Date().getMonth()
-
+export function getRoomRoute(countries: Country[]) {
     return async function(request: Express.Request, response: Express.Response) {
         const { name } = request.params as { name?: string }
         const fetchableName: string | undefined = name && name.toLowerCase().replace(' ', '_')
@@ -36,19 +59,7 @@ export function getRoomRoute(countries: Countries[]) {
             const { data: room } = await data.json()
 
             if (room) {
-                const roomTemperature: number = Math.floor(room.measurements.temperature / 1000)
-
-                const matches = countries.filter(country => {
-                    if (country) {
-                        const monthlyAvg = country.monthlyAvg[currentMonthNumber]
-
-                        return monthlyAvg
-                            ? monthlyAvg.low <= roomTemperature && monthlyAvg.high >= roomTemperature
-                            : false
-                    } else {
-                        return false
-                    }
-                })
+                const matches = filterCountriesByRoomTemperature(countries, room)
 
                 const updatedMatches = await Promise.all(matches.map(async country => {
                     if (country.countryCode && country.countryCode.length > 0) {
@@ -79,6 +90,23 @@ export function getRoomRoute(countries: Countries[]) {
             response.status(500).redirect('/')
         }
     }
+}
+
+function filterCountriesByRoomTemperature(countries: Country[], room: Room) {
+    const roomTemperature: number = Math.floor(room.measurements.temperature / 1000)
+    const currentMonthNumber: number = new Date().getMonth()
+
+    return countries.filter(country => {
+        if (country) {
+            const monthlyAvg = country.monthlyAvg[currentMonthNumber]
+
+            return monthlyAvg
+                ? monthlyAvg.low <= roomTemperature && monthlyAvg.high >= roomTemperature
+                : false
+        } else {
+            return false
+        }
+    })
 }
 
 export function getOfflineRoute() {

@@ -7,7 +7,7 @@ import { decompress } from './services/decompressionService'
 import { getIndexRoute, getRoomRoute, getOfflineRoute } from './routes/getRoutes'
 import util from 'util'
 import fs from 'fs'
-import { Countries } from './types/countries'
+import { Country } from './types/Country'
 
 const readFile = util.promisify(fs.readFile)
 
@@ -16,7 +16,7 @@ const readFile = util.promisify(fs.readFile)
 
     try {
         const countryData: Buffer = await readFile(path.join(__dirname, '../public/data/countries.json'))
-        const countries: Countries[] = JSON.parse(countryData.toString())
+        const countries: Country[] = JSON.parse(countryData.toString())
         const aWeekInSeconds: number = 60 * 60 * 24 * 7
 
         app.use(Helmet())
@@ -33,7 +33,7 @@ const readFile = util.promisify(fs.readFile)
         app.set('view engine', 'ejs')
         app.set('views', path.join(__dirname, 'views'))
 
-        app.get('/', cache(aWeekInSeconds), getIndexRoute())
+        app.get('/', cache(aWeekInSeconds), getIndexRoute(countries))
         app.get('/room/:name', cache(aWeekInSeconds), getRoomRoute(countries))
         app.get('/offline', cache(aWeekInSeconds), getOfflineRoute())
 
