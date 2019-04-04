@@ -56,11 +56,11 @@
 
                         if (closeModalButton) {
                             closeModalButton.addEventListener('click', event => {
-                                // This is done to create the same experience as with pressing the escape key.
                                 event.preventDefault()
                                 window.location.hash = '#'
 
                                 if (typeof pageOffset === 'number') {
+                                    console.log('test')
                                     window.scrollTo(0, pageOffset)
                                 }
 
