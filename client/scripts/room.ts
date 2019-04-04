@@ -70,8 +70,12 @@
                     }
                 })
 
-                window.addEventListener('keydown', event => {
-                    if (typeof event.key === 'string' && (event.key === 'Esc' || event.key === 'Escape')) {
+                window.addEventListener('keydown', ({ key }) => {
+                    const { hash } = window.location
+                    const isModalOpen = hash && hash.length > 0 && hash !== '#'
+                    const escapeKeyIsPressed = typeof key === 'string' && (key === 'Esc' || key === 'Escape')
+
+                    if (isModalOpen && escapeKeyIsPressed) {
                         window.location.hash = '#'
 
                         if (typeof pageOffset === 'number') {
