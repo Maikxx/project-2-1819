@@ -4,6 +4,11 @@
 
 An useful server-side rendered application built with the data of Mirabeau for Mirabeau employees to make more of their day.
 
+## Scores
+
+![Master page audit score](./docs/master-score.png)
+![Detail page audit score](./docs/detail-score.png)
+
 ## Concept
 
 Mirabeau employees will want to see a list of all rooms that exist, and with it their statistics (like temperature) in real-time. There will be a subtle difference between rooms that are available and those that are not in the design.
