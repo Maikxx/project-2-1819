@@ -13,6 +13,7 @@ if (
     && featureExists('hash', window.location, 'string')
     && featureExists('replace', String.prototype, 'function')
     && featureExists('removeAttribute', document.body, 'function')
+    && featureExists('key', KeyboardEvent.prototype, 'string')
 ) {
     const modals: NodeListOf<Element> = document.querySelectorAll('.Modal')
 
