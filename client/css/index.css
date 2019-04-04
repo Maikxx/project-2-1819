@@ -118,7 +118,7 @@ body main {
 }
 
 .PageHeader {
-    width: 100%;
+    width: 100vw;
     background-color: #2C73D2;
     display: flex;
     padding: 2em 0;
@@ -129,6 +129,7 @@ body main {
     color: #FFFFFF;
     transition: .2s ease color;
     line-height: 1;
+    margin: -1em -1em 0;
 }
 
 .PageHeader > .PageTitle {
@@ -282,6 +283,7 @@ body main {
 
 .CountriesSectionModal__image {
     max-width: 45%;
+    border-radius: 4px;
     margin: 1em auto;
 }
 
@@ -354,6 +356,7 @@ body main {
 .CountriesSectionModal svg {
     max-width: 45%!important;
     height: auto!important;
+    margin: 1em auto;
 }
 
 .CountriesSectionModal svg path {
