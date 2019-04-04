@@ -5,6 +5,7 @@ import fs from 'fs'
 import { WeatherByCountry } from '../types/weatherByCountry'
 import { NationalAnimalByCountry } from '../types/animalByCountry'
 import fetch, { Response } from 'node-fetch'
+import { CountryCodeToCountryName } from '../types/countries'
 
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
@@ -14,6 +15,9 @@ export async function updateStorageService() {
     const weatherByCountry: WeatherByCountry[] = JSON.parse(weatherByCountryData.toString())
     const nationalAnimalByCountryData: Buffer = await readFile(path.join(__dirname, '../../public/data/animals_by_country.json'))
     const nationalAnimalByCountry: NationalAnimalByCountry[] = JSON.parse(nationalAnimalByCountryData.toString())
+    const countryCodeToCountryNameData: Buffer = await readFile(path.join(__dirname, '../../public/data/countryCodeToCountryName.json'))
+    const countryCodeToCountryName: CountryCodeToCountryName = JSON.parse(countryCodeToCountryNameData.toString())
+
     const transformedCountries = await Promise.all(weatherByCountry.map(async country => {
         const animalMatch = nationalAnimalByCountry.find(({ country: nac }) => nac === country.country)
 
@@ -49,12 +53,25 @@ export async function updateStorageService() {
                     ...country,
                     animalName: animalMatch.name,
                     imageUrl: b64,
+                    countryCode: '',
                 }
             }
         }
 
         return null
-    }).filter(match => !!match))
+    }).filter(match => match !== null))
+
+    Object.entries(countryCodeToCountryName).forEach(([ code, name ]) => {
+        const transformedCountry = transformedCountries.find(country => {
+            return country
+                ? country.country === name
+                : false
+        })
+
+        if (transformedCountry) {
+            transformedCountry.countryCode = code
+        }
+    })
 
     await writeFile(path.join(__dirname, '../../public/data/countries.json'), JSON.stringify(transformedCountries))
 }
