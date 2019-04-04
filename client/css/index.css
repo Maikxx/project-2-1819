@@ -369,15 +369,3 @@ body main {
     align-items: center;
     justify-content: center;
 }
-
-.CountryList {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.CountryList svg {
-    width: 2em;
-    margin: .5em;
-}

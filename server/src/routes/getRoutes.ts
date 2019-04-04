@@ -9,7 +9,7 @@ import path from 'path'
 import { Room } from '../types/Room'
 const readFile = util.promisify(fs.readFile)
 
-export function getIndexRoute(countries: Country[]) {
+export function getIndexRoute() {
     return async function(request: Express.Request, response: Express.Response) {
         try {
             const fetchResponse = await fetch('http://mirabeau.denniswegereef.nl/api/v1/rooms')
@@ -17,27 +17,8 @@ export function getIndexRoute(countries: Country[]) {
             const rooms: Room[] = data && data.data
 
             if (rooms && rooms.length > 0) {
-                const roomsWithCountryFlags = await Promise.all(rooms.map(async room => {
-                    const matchingCountries = filterCountriesByRoomTemperature(countries, room)
-
-                    const countryFlags = await Promise.all(matchingCountries.map(async country => {
-                        if (country.countryCode && country.countryCode.length > 0) {
-                            const url = `../../public/assets/images/country_flags/${country.countryCode.toLowerCase()}.svg`
-                            const svg = await readFile(path.join(__dirname, url))
-                            return svg.toString()
-                        }
-
-                        return null
-                    }).filter(countryFlag => countryFlag !== null))
-
-                    return {
-                        ...room,
-                        countryFlags,
-                    }
-                }))
-
                 response.status(200).render('pages/index', {
-                    rooms: sortBy(roomsWithCountryFlags, 'measurements.occupancy'),
+                    rooms: sortBy(rooms, 'measurements.occupancy'),
                 })
             } else {
                 throw new Error('No rooms could be found!')
