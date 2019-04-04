@@ -94,6 +94,7 @@ Provide the user with additional useful features, mainly with JavaScript.
 
 ## Future enhancements
 
+* Add the national flag color as a fill on the SVGs of countries.
 * Fix images that are not actually animals (for example: New Zealand, Kiwi shows a kiwi fruit instead of the bird).
 * Increase performance on **first view** (caused by the size of prefetched data).
 * Swap SVG maps with Mapbox map when there is JavaScript.
