@@ -53,7 +53,7 @@ export function getRoomRoute(countries: Countries[]) {
                 const updatedMatches = await Promise.all(matches.map(async country => {
                     if (country.countryCode && country.countryCode.length > 0) {
                         // tslint:disable-next-line:ter-max-len
-                        const svg = await readFile(path.join(__dirname, `../../public/assets/country_vectors/${country.countryCode.toLowerCase()}/vector.svg`))
+                        const svg = await readFile(path.join(__dirname, `../../public/assets/images/country_vectors/${country.countryCode.toLowerCase()}/vector.svg`))
 
                         return {
                             ...country,
