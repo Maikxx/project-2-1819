@@ -243,7 +243,6 @@ body main {
     margin: 1em;
     background-color: #845EC2;
     background: radial-gradient(#2C73D2 0%,#845EC2 100%);
-    clip-path: url(#clip-shape-MX);
     border-radius: 4px;
     overflow: hidden;
     transition: box-shadow ease .2s;
@@ -350,4 +349,14 @@ body main {
     max-height: 80%;
     max-height: 80vh;
     overflow-y: scroll;
+}
+
+.CountriesSectionModal svg {
+    width: 100px!important;
+    height: 100px!important;
+    margin: 0 auto 1em;
+}
+
+.CountriesSectionModal svg path {
+    fill: #FFFFFF;
 }

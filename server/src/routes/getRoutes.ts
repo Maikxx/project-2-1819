@@ -54,18 +54,10 @@ export function getRoomRoute(countries: Countries[]) {
                     if (country.countryCode && country.countryCode.length > 0) {
                         // tslint:disable-next-line:ter-max-len
                         const svg = await readFile(path.join(__dirname, `../../public/assets/country_vectors/${country.countryCode.toLowerCase()}/vector.svg`))
-                        const svgString = svg.toString()
-                            .replace('<g', '<clipPath')
-                            .replace('</g>', '</clipPath>')
-
-                        const clipPathIndex = svgString.indexOf('<clipPath') + 'clipPath'.length + 1
-                        // tslint:disable-next-line:ter-max-len
-                        const updatedString = `${svgString.slice(0, clipPathIndex)} id="clip-shape-${country.countryCode}" ${svgString.slice(clipPathIndex)}`
 
                         return {
                             ...country,
-                            shape: updatedString,
-                            shapeUrl: `clip-shape-${country.countryCode}`,
+                            shape: svg.toString(),
                         }
                     } else {
                         return {
