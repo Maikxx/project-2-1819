@@ -243,6 +243,7 @@ body main {
     margin: 1em;
     background-color: #845EC2;
     background: radial-gradient(#2C73D2 0%,#845EC2 100%);
+    clip-path: url(#clip-shape-MX);
     border-radius: 4px;
     overflow: hidden;
     transition: box-shadow ease .2s;

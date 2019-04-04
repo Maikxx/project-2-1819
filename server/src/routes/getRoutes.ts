@@ -3,6 +3,10 @@ import Express from 'express'
 import fetch, { Response } from 'node-fetch'
 import { uniqBy, sortBy } from 'lodash'
 import { Countries } from '../types/countries'
+import util from 'util'
+import fs from 'fs'
+import path from 'path'
+const readFile = util.promisify(fs.readFile)
 
 export function getIndexRoute() {
     return async function(request: Express.Request, response: Express.Response) {
@@ -46,9 +50,34 @@ export function getRoomRoute(countries: Countries[]) {
                     }
                 })
 
+                const updatedMatches = await Promise.all(matches.map(async country => {
+                    if (country.countryCode && country.countryCode.length > 0) {
+                        // tslint:disable-next-line:ter-max-len
+                        const svg = await readFile(path.join(__dirname, `../../public/assets/country_vectors/${country.countryCode.toLowerCase()}/vector.svg`))
+                        const svgString = svg.toString()
+                            .replace('<g', '<clipPath')
+                            .replace('</g>', '</clipPath>')
+
+                        const clipPathIndex = svgString.indexOf('<clipPath') + 'clipPath'.length + 1
+                        // tslint:disable-next-line:ter-max-len
+                        const updatedString = `${svgString.slice(0, clipPathIndex)} id="clip-shape-${country.countryCode}" ${svgString.slice(clipPathIndex)}`
+
+                        return {
+                            ...country,
+                            shape: updatedString,
+                            shapeUrl: `clip-shape-${country.countryCode}`,
+                        }
+                    } else {
+                        return {
+                            ...country,
+                            shape: null,
+                        }
+                    }
+                }))
+
                 response.status(200).render('pages/room', {
                     room,
-                    matches: sortBy(uniqBy(matches, 'country'), 'country'),
+                    matches: sortBy(uniqBy(updatedMatches, 'country'), 'country'),
                 })
             } else {
                 response.status(500).redirect('/')
