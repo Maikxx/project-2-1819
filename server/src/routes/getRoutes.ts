@@ -57,7 +57,17 @@ export function getIndexRoute(countries: Country[]) {
 export function getRoomRoute(countries: Country[]) {
     return async function(request: Express.Request, response: Express.Response) {
         const { name } = request.params as { name?: string }
-        const fetchableName: string | undefined = name && name.toLowerCase().replace(' ', '_')
+        let fetchableName: string | undefined = name && name.toLowerCase().replace(' ', '_')
+
+        if (!fetchableName) {
+            return response.status(404).redirect('/')
+        }
+
+        if (fetchableName.includes('desk_area') && fetchableName.includes('1')) {
+            fetchableName = 'desk_area_1'
+        } else if (fetchableName.includes('desk_area') && fetchableName.includes('2')) {
+            fetchableName = 'desk_area_2'
+        }
 
         try {
             const data: Response = await fetch(`${APIUrl}/room/${fetchableName}`)
