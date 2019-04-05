@@ -33,7 +33,7 @@ const readFile = util.promisify(fs.readFile)
         app.set('view engine', 'ejs')
         app.set('views', path.join(__dirname, 'views'))
 
-        app.get('/', cache(aWeekInSeconds), getIndexRoute())
+        app.get('/', cache(aWeekInSeconds), getIndexRoute(countries))
         app.get('/room/:name', cache(aWeekInSeconds), getRoomRoute(countries))
         app.get('/offline', cache(aWeekInSeconds), getOfflineRoute())
 

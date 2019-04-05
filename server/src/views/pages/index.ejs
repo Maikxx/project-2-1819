@@ -47,6 +47,21 @@
                             <h3>Temperature</h3>
                             <span><%= Math.floor((room.measurements.temperature / 1000)) %> degrees</span>
                         </div>
+                        <div class="RoomListItem__data">
+                            <h3>Matching countries</h3>
+                            <div class="CountryFlagList">
+                                <% if (room.countries && room.countries.length > 0) { %>
+                                    <% room.countries.filter(country => !!country.flagUrl).forEach(country => { %>
+                                        <img
+                                            src="<%= country.flagUrl %>"
+                                            alt="Flag of <%= country.country  %>"
+                                            class="CountryFlagList__flag"
+                                            title="Flag of <%= country.country %>"
+                                        >
+                                    <% }) %>
+                                <% } %>
+                            </div>
+                        </div>
                     </a>
                 <% }) %>
             </section>

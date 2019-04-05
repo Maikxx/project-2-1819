@@ -7,18 +7,42 @@ import util from 'util'
 import fs from 'fs'
 import path from 'path'
 import { Room } from '../types/Room'
-const readFile = util.promisify(fs.readFile)
 
-export function getIndexRoute() {
+const readFile = util.promisify(fs.readFile)
+const APIUrl = 'http://mirabeau.denniswegereef.nl/api/v1'
+
+export function getIndexRoute(countries: Country[]) {
     return async function(request: Express.Request, response: Express.Response) {
         try {
-            const fetchResponse = await fetch('http://mirabeau.denniswegereef.nl/api/v1/rooms')
+            const fetchResponse = await fetch(`${APIUrl}/rooms`)
             const data = await fetchResponse.json()
             const rooms: Room[] = data && data.data
 
             if (rooms && rooms.length > 0) {
+                const updatedRooms = rooms.map(room => {
+                    const matchingCountries = filterCountriesByRoomTemperature(countries, room)
+                    const countriesWithImageUrls = matchingCountries.map(country => {
+                        if (country.countryCode && country.countryCode.length > 0) {
+                            return {
+                                ...country,
+                                flagUrl: `../../assets/images/country_flags_png/${country.countryCode.toLowerCase()}.png`,
+                            }
+                        }
+
+                        return {
+                            ...country,
+                            flagUrl: null,
+                        }
+                    })
+
+                    return {
+                        ...room,
+                        countries: countriesWithImageUrls,
+                    }
+                })
+
                 response.status(200).render('pages/index', {
-                    rooms: sortBy(rooms, 'measurements.occupancy'),
+                    rooms: sortBy(updatedRooms, 'measurements.occupancy'),
                 })
             } else {
                 throw new Error('No rooms could be found!')
@@ -36,7 +60,7 @@ export function getRoomRoute(countries: Country[]) {
         const fetchableName: string | undefined = name && name.toLowerCase().replace(' ', '_')
 
         try {
-            const data: Response = await fetch(`http://mirabeau.denniswegereef.nl/api/v1/room/${fetchableName}`)
+            const data: Response = await fetch(`${APIUrl}/room/${fetchableName}`)
             const { data: room } = await data.json()
 
             if (room) {
@@ -44,10 +68,11 @@ export function getRoomRoute(countries: Country[]) {
 
                 const updatedMatches = await Promise.all(matches.map(async country => {
                     if (country.countryCode && country.countryCode.length > 0) {
-                        // tslint:disable-next-line:ter-max-len
-                        const svg = await readFile(path.join(__dirname, `../../public/assets/images/country_vectors/${country.countryCode.toLowerCase()}/vector.svg`))
-                        // tslint:disable-next-line:ter-max-len
-                        const countryFlagSvg = await readFile(path.join(__dirname, `../../public/assets/images/country_flags/${country.countryCode.toLowerCase()}.svg`))
+                        const shapeSvgUrl = `../../public/assets/images/country_vectors/${country.countryCode.toLowerCase()}/vector.svg`
+                        const svg = await readFile(path.join(__dirname, shapeSvgUrl))
+
+                        const countryFlagSvgUrl = `../../public/assets/images/country_flags/${country.countryCode.toLowerCase()}.svg`
+                        const countryFlagSvg = await readFile(path.join(__dirname, countryFlagSvgUrl))
 
                         return {
                             ...country,

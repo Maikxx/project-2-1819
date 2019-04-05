@@ -380,3 +380,17 @@ body main {
 .Row--relative {
     position: relative;
 }
+
+.CountryFlagList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.CountryFlagList__flag {
+    border: 1px solid #141414;
+    max-width: 18%;
+    height: 2em;
+    margin: .5em 1%;
+}
