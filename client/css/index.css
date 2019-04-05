@@ -182,6 +182,28 @@ body main {
     overflow: hidden;
 }
 
+.RoomListItem__subtitle {
+    transition: .2s ease opacity;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.RoomListItem__subtitle:hover {
+    opacity: 0.8;
+}
+
+.RoomListItem__subtitle::after {
+    content: 'i';
+    border-radius: 50%;
+    font-size: 60%;
+    margin-left: .5em;
+    border: 2px solid #141414;
+    padding: .12em .5em;
+    text-align: center;
+    display: inline-block;
+}
+
 .RoomListItem:not(.RoomListItem--is-occupied):hover,
 .RoomListItem:not(.RoomListItem--is-occupied):focus {
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.75);
